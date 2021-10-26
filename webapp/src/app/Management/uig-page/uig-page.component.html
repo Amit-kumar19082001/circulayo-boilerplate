@@ -1,0 +1,61 @@
+
+<div class="row" style="width:100%">
+    <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <button id = "viewbutton" data-bs-toggle="modal" data-bs-target="#Modal" hidden></button>
+        <h1 style="text-align: center; padding: 9% 5%;">UNIQUE IDENTIFIER CODE</h1>
+        <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <select class="form-select form-select-lg mb-3" (change)="setItem($event.target)" aria-label=".form-select-lg example">
+              <option style="width:50%" selected disabled>
+                Select item type
+              </option> 
+              <option *ngFor="let item of Demo_data" style="width:50%">
+                    <div>{{item.name}}</div>
+                </option>
+            </select>
+        </div>
+        <div class="col-md-2"></div>
+        </div>
+        <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content mod_cont_pro">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Item Details</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" *ngIf="selected_item">
+                  <p>Name: {{selected_item['name']}}</p>
+                  <p>Description : {{selected_item['description']}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#Nextpage">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+          <div class="modal fade" id="Nextpage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content mod_cont_pro">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Item Details</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="input-prop">
+                    <label for="editname"class="edit_label">Number of code required:</label>
+                    <input type="number" id="editname">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Next</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        

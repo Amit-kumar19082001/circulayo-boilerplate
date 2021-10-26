@@ -1,0 +1,103 @@
+.listsite{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(151, 151, 151);
+}
+
+.sidebar_title{
+    margin-left: 20px;
+}
+.side_bar_menu{
+    padding-left: 0%;
+}
+.side_bar_menu:hover{
+    background-color: #0d6efd;
+}
+.title{
+    background-color: rgb(0, 0, 99);
+    color:white;
+}
+.box-sizing{
+    margin: 0;
+}
+.box{
+    padding: 0;
+}
+.title span{
+ margin-left: 2%;   
+}
+.mod_cont_pro{
+    height: 550px;
+}
+.td-row-id{
+    text-align: center;
+}
+.add-button{
+    margin: 2%;
+    justify-content: flex-end;
+}
+.inputbox{
+    display: flex;
+    justify-content: space-between;
+}
+.add-sites{
+    margin: 1.5%;
+}
+.data{
+    padding: 0% 1%;
+    padding-right: 13%;
+}
+.title{
+    margin-bottom:0;
+}
+.butpro{
+    margin-top: 15%;
+}
+.list:hover{
+    background-color: rgb(190, 190, 190);
+}
+.description{
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    max-width: 50vw;
+}
+.edit_label{
+    padding: 2%;
+}
+.input-prop input{
+    margin: 1%;
+    width: 70%;
+}
+.input-prop{
+    display: flex;
+    justify-content: space-between;
+}
+#grid {
+    height: 500px;
+}
+
+.options {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: rgba(191, 191, 191, 0.15);
+}
+
+.caption {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.option {
+    margin-top: 10px;
+}
+
+.option > span {
+    margin-right: 10px;
+}
+
+.option > .dx-widget {
+    display: inline-block;
+    vertical-align: middle;
+}

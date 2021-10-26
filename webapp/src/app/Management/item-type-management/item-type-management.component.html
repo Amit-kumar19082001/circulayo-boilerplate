@@ -1,0 +1,246 @@
+
+<div class="row box-sizing">
+  <div class="col-md-2" style="background-color: rgb(0, 0, 88); padding: 0;">
+    <div class="d-flex flex-column flex-shrink-0 pt-3 text-white bg-dark" style="width: 225px; height: 100%;">
+      <a href="/" class=" d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <span class="fs-5 sidebar_title">Management Menu</span>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a class="side_bar_menu nav-link text-white item" (click)="setsidebarTitle('Item Type',$event.target)" style="padding-left:0;" aria-current="page">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+            Item Type
+          </a>
+        </li>
+        <li>
+          <a class="side_bar_menu nav-link text-white" (click)="setsidebarTitle('Client and Site',$event.target)" style="padding-left:0;" aria-current="page">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+            Client and Site  
+          </a>
+        </li>
+        <li>
+          <a class="side_bar_menu nav-link text-white" (click)="setsidebarTitle('User',$event.target)" style="padding-left:0;" aria-current="page">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+            User  
+          </a>
+        </li>
+        <li>
+          <a class="side_bar_menu nav-link text-white" (click)="setsidebarTitle('Client User',$event.target)" style="padding-left:0;" aria-current="page">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+            Client User  
+          </a>
+        </li>
+        <li>
+          <a class="side_bar_menu nav-link text-white" (click)="setsidebarTitle('Site User',$event.target)" style="padding-left:0;" aria-current="page">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+            Site User  
+          </a>
+        </li>
+        <li>
+          <a class="side_bar_menu nav-link text-white" (click)="setsidebarTitle('Micro Edge',$event.target)" style="padding-left:0;" aria-current="page">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+            Micro Edge  
+          </a>
+        </li>
+        <li>
+          <a class="side_bar_menu nav-link text-white" (click)="setsidebarTitle('3rd Party Device',$event.target)" style="padding-left:0;" aria-current="page">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+            3rd Party Device  
+          </a>
+        </li>
+        <li>
+          <a class="side_bar_menu nav-link text-white" (click)="setsidebarTitle('API Key',$event.target)" style="padding-left:0;" aria-current="page">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+            API Key  
+          </a>
+        </li>
+        <li>
+          <a class="side_bar_menu nav-link text-white" (click)="setsidebarTitle('3rd Party API Access',$event.target)" style="padding-left:0;" aria-current="page">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+            3rd Party API Access  
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-10 box">
+ <button id = "viewbutton" data-bs-toggle="modal" data-bs-target="#Modal" hidden></button>
+ <div class="modal fade" *ngIf="item" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content mod_cont_pro">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">item Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <p>Name: {{item['name']}}</p>
+        <p>Description : {{item['description']}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button data-bs-toggle="modal" id = "editbutton"data-bs-target="#EditModal" hidden></button>
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit item information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="input-prop">
+            <label for="editname"class="edit_label">Name :</label>
+            <input id="editname" placeholder="Name">
+          </div>
+          <div >
+            <label for="desc" class="edit_label">Description</label>
+            <div class="form-floating" id="desc">
+              <textarea class="form-control" id="edit_txtarea" style="height: 300px"></textarea>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="editdata()" data-bs-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#AddModal" type="button" id="button-addon1" hidden></button>
+ <div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add item</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="input-prop">
+            <label for="name"class="edit_label">Name :</label>
+            <input id="name" class="addedit" placeholder="Name">
+          </div>
+          <div >
+            <label for="desc" class="edit_label">Description</label>
+            <div class="form-floating" id="desc">
+              <textarea class="form-control addesc" id="floatingTextarea2" style="height: 300px"></textarea>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addData()">Add item</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button id = "uigbutton" data-bs-toggle="modal" data-bs-target="#uig" hidden></button>
+<div class="modal fade" id="uig" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content mod_cont_pro">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Item Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" *ngIf="item">
+          <p>Name: {{item['name']}}</p>
+          <p>Description : {{item['description']}}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#Nextpage">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Nextpage" *ngIf="item" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Generate unique codes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-prop">
+            <label for="editname"class="edit_label">Number of code required:</label>
+            <input type="number" id="editnumber" [(ngModel)]="no_of_code" maxlength="999999" min = "1" max = "999999">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="setItemno()" data-bs-dismiss="modal">Generate</button>
+            <button type="button" id="send_data" data-bs-dismiss="modal" routerLink="/uic_page/{{item.ID}}/{{no_of_code}}" hidden></button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="title"><span>{{sidebarselectedItem|uppercase}} MANAGEMENT</span></div>
+ <dx-data-grid id="grid"
+ [dataSource]="Demo"
+ [showBorders]="true"
+ keyExpr="ID"
+ (onSelectionChanged)="selectedChanged($event)"class="m-2">
+
+ <dxo-selection mode="single" ></dxo-selection>
+ <dxo-paging [enabled]="false"></dxo-paging>
+ <dxo-editing mode="popup" [confirmDelete]="false">
+ </dxo-editing>
+ <dxo-filter-row [visible]="true"></dxo-filter-row>
+ <!--<dxi-column dataField="name" [width]="460"></dxi-column>
+ <dxi-column dataField="location"[width]="330"></dxi-column>
+ <dxi-column dataField="Description" [width]="430"></dxi-column>  -->
+ <dxi-column dataField="ID" caption="Id"[width]="30" style="text-align: center;"></dxi-column>
+ <dxi-column dataField="name"></dxi-column>
+ <dxi-column dataField="description"></dxi-column>
+
+</dx-data-grid>
+
+<dx-speed-dial-action
+ icon="add"
+ label="Add"
+ [index]="5"
+ (onClick)="addRow();"
+ >
+</dx-speed-dial-action>
+<dx-speed-dial-action
+ icon="trash"
+ label="Delete"
+ [index]="2"
+ [visible]="selectedRowIndex !== -1"
+ (onClick)="deleteRow()">
+</dx-speed-dial-action>
+<dx-speed-dial-action 
+ icon="edit"
+ label="Edit"
+ [index]="3"
+ [visible]="selectedRowIndex !== -1"
+    (onClick)="editRow()">
+</dx-speed-dial-action>
+<dx-speed-dial-action 
+ icon="verticalaligntop"
+ label="View"
+ [index]="4"
+ [visible]="selectedRowIndex !== -1"
+    (onClick)="setitem(this)">
+</dx-speed-dial-action>
+<dx-speed-dial-action 
+ icon="key"
+ label="Generate unique identifier"
+ [index]="1"
+ [visible]="selectedRowIndex !== -1"
+    (onClick)="generate_uic()">
+</dx-speed-dial-action>
+<div class="options">
+ 
+</div>
+</div>
+</div>

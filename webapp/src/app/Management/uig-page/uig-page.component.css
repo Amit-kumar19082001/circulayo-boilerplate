@@ -1,0 +1,11 @@
+.input-prop input{
+    margin: 1%;
+    width: 50%;
+}
+.input-prop{
+    display: flex;
+    justify-content: space-between;
+}
+.edit_label{
+    padding: 2%;
+}
